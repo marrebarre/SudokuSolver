@@ -46,7 +46,6 @@ const App = props => {
 
   var createSudokuPressed = () => {
     sync();
-    tmpSteps = 0;
     load(difficulties.empty);
     createSudoku();
   };
@@ -76,8 +75,6 @@ const App = props => {
     sync();
     if (!solve(false)) {
       alert('No solution found!');
-    } else {
-      console.log(steps);
     }
 
     updateUI();
@@ -95,6 +92,7 @@ const App = props => {
     setSteps(current => 0);
     tmpSolutions = [];
     tmpFlag = false;
+    tmpSteps = 0;
   };
 
   var validGuess = (rowIndex, columnIndex, digit) => {
